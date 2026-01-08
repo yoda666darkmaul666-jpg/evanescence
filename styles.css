@@ -1,0 +1,298 @@
+:root {
+    --bg: #0f1113;
+    --panel: #0e1720;
+    --muted: #9aa6b2;
+    --accent: #5bc0eb;
+    --accent-2: #ff6b6b;
+    --glass: rgba(255, 255, 255, 0.05);
+    --radius: 14px;
+    --max-width: 1100px;
+}
+
+/* Base & reset */
+* {
+    box-sizing: border-box;
+}
+html, body {
+    height: 100%;
+}
+body {
+    margin: 0;
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    background: var(--bg);
+    color: #e6eef6;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Skip link */
+.skip-link {
+    position: absolute;
+    left: -999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+.skip-link:focus {
+    left: 16px;
+    top: 16px;
+    width: auto;
+    height: auto;
+    padding: 8px 12px;
+    background: var(--accent);
+    color: #072033;
+    border-radius: 6px;
+    z-index: 999;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 24px;
+    max-width: var(--max-width);
+    margin: 18px auto;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+header h1 {
+    margin: 0;
+    font-size: 1.3rem;
+    color: var(--accent);
+    letter-spacing: 2px;
+}
+nav ul {
+    display: flex;
+    gap: 18px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+nav a {
+    color: var(--muted);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 10px;
+    border-radius: var(--radius);
+    transition: all 0.2s ease;
+}
+nav a:hover, nav a[aria-current="page"] {
+    color: #071824;
+    background: linear-gradient(90deg, var(--accent), #44c2ff);
+    box-shadow: 0 6px 18px rgba(91,192,235,0.1);
+}
+nav a:focus-visible {
+    outline: 3px solid rgba(91,192,235,0.2);
+    outline-offset: 3px;
+}
+
+/* Main content */
+main {
+    max-width: var(--max-width);
+    margin: 30px auto;
+    padding: 0 20px;
+}
+h2 {
+    font-size: 2.25rem;
+    margin: 0 0 22px 0;
+    color: #dff3ff;
+    border-left: 6px solid rgba(91,192,235,0.18);
+    padding-left: 16px;
+}
+p {
+    color: var(--muted);
+    margin: 0 0 16px 0;
+}
+
+/* Hero */
+.hero {
+    height: 420px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--radius);
+    background: linear-gradient(180deg, rgba(0,0,0,0.6), rgba(0,0,0,0.4)),
+                url('asset/img/evanescence.jpg') center/cover no-repeat;
+    margin-bottom: 40px;
+    border: 1px solid rgba(255,255,255,0.03);
+}
+.hero-content {
+    max-width: 900px;
+    text-align: center;
+    padding: 36px;
+    border-radius: var(--radius);
+    backdrop-filter: blur(6px);
+    background: rgba(12,18,24,0.35);
+}
+.hero-content h2 {
+    font-size: 2.8rem;
+    margin: 0 0 12px;
+    color: #fff;
+}
+.hero-content p {
+    font-size: 1.1rem;
+    margin-bottom: 18px;
+    color: var(--muted);
+}
+.cta-button {
+    display: inline-block;
+    padding: 12px 28px;
+    background: linear-gradient(90deg, var(--accent-2), #ff8a8a);
+    color: #fff;
+    border-radius: 999px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: 0 8px 24px rgba(255,107,107,0.12);
+    transition: transform 0.18s ease;
+}
+.cta-button:hover {
+    transform: translateY(-3px);
+}
+.cta-button:focus-visible {
+    outline: 3px solid rgba(255,107,107,0.2);
+    outline-offset: 4px;
+}
+
+/* Intro / bio box */
+.intro-box {
+    background: var(--glass);
+    padding: 20px;
+    border-radius: var(--radius);
+    margin-bottom: 28px;
+    color: var(--muted);
+}
+
+/* Albums */
+.album-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+.album-card {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    background: rgba(255,255,255,0.03);
+    padding: 14px;
+    border-radius: var(--radius);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.album-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(7,8,10,0.6);
+}
+.album-image {
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px solid rgba(255,255,255,0.04);
+}
+.album-info h3 {
+    margin: 0 0 8px 0;
+    color: #bde9ff;
+    font-size: 1.05rem;
+}
+.album-info p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+/* Gallery */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin: 30px 0;
+}
+.gallery-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: var(--radius);
+    border: 1px solid rgba(255,255,255,0.03);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.gallery-image:hover {
+    transform: scale(1.03);
+    box-shadow: 0 18px 36px rgba(7,12,18,0.6);
+}
+
+/* Members / bio */
+.member {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 40px;
+    background: rgba(255,255,255,0.04);
+    padding: 20px;
+    border-radius: var(--radius);
+    transition: background 0.25s ease;
+}
+.member:hover {
+    background: rgba(91,192,235,0.05);
+}
+.member img {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: var(--radius);
+    border: 2px solid rgba(255,255,255,0.05);
+}
+.info h2 {
+    margin: 0;
+    font-size: 26px;
+    color: var(--accent);
+}
+.info h3 {
+    margin: 5px 0 15px;
+    font-weight: normal;
+    color: var(--muted);
+}
+.info p {
+    line-height: 1.6;
+    font-size: 15px;
+}
+
+/* Footer */
+footer {
+    max-width: var(--max-width);
+    margin: 36px auto 60px;
+    padding: 28px 20px;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.02);
+    color: var(--muted);
+}
+footer ul {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 12px 0;
+    margin: 0;
+    list-style: none;
+}
+footer a {
+    color: var(--muted);
+    text-decoration: none;
+}
+footer a:hover {
+    color: var(--accent);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .hero { height: 320px; }
+    .hero-content h2 { font-size: 2rem; }
+    .gallery { grid-template-columns: repeat(2,1fr); }
+    .member { flex-direction: column; text-align: center; }
+    .album-card { flex-direction: column; align-items: center; text-align: center; }
+}
+@media (max-width: 600px) {
+    header { padding: 12px 14px; }
+    nav ul { gap: 10px; }
+    .hero { height: 260px; }
+    .hero-content { padding: 20px; }
+    .gallery { grid-template-columns: 1fr; }
+}
